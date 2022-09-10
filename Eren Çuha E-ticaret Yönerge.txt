@@ -1,0 +1,22 @@
+Eren Çuha Butgem Web Tasarım Son Proje Yönlendirme
+
+
+*Admin Panelini Proje içindeki AdminPanel klasörü içindeki musteriliste.aspx sayfasından açabilirsiniz direkt olarak 
+Admin Giriş Ekranına Yönlendirecektir.
+
+*Admin Paneli      Kullanıcı Adı: Erencuha
+                   Şifre        : 123        
+
+
+*Site önyüzüne giriş için site klasörünün içindeki default.aspx safyasını açabilirsiniz
+
+*Önyüz Kayıtlı Hesap           Kullanıcı Adı: Erencasper16@hotmail.com
+                               Şifre        : 123  
+
+*İnternet Adresi :   http://eren.vuudart.site  
+
+
+*Proje dosyaları zipin içindedir.
+
+
+ 
