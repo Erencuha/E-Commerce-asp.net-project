@@ -1,0 +1,458 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AnaSite.master.cs" Inherits="Ecommerceproje.Site.AnaSite" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+       <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Login | E-Shopper</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/price-range.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+	<div id="loginxx" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false" >
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3>Üye Girişi</h3>
+		  </div>
+		  <%--<div class="modal-body">
+			<form class="form-horizontal loginFrm">
+			  <div class="control-group">
+				  <asp:TextBox ID="TextBox1" runat="server" placeholder="Email" TextMode="Email"></asp:TextBox>
+				<input type="text" id="inputEmail" placeholder="Email">
+			  </div>
+			  <div class="control-group">
+				<input type="password" id="inputPassword" placeholder="Password">
+				  <asp:TextBox ID="TextBox2" runat="server" placeholder="Şifre" TextMode="Password"></asp:TextBox>
+			  </div>
+			  <div class="control-group">
+				<label class="checkbox">
+					<asp:CheckBox ID="CheckBox1" runat="server" />Beni Hatırla
+				<input type="checkbox"> Beni Hatırla
+				</label>
+			  </div>
+			</form>--%>
+
+			  <asp:Button ID="Button5" class="btn btn-success"  Text="Çıkış Yap" OnClick="Button5_Click" />
+			<button type="submit" class="btn btn-success">Sign in</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Kapat</button>
+		  </div>
+
+	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+
+		  ÇIKIŞ YAPMAK İSTEDİĞİNE EMİN MİSİN?
+
+
+      </div>
+      <div class="modal-footer">
+		  <button type="button" data-dismiss="modal" class="btn btn-primary">İPTAL</button>
+        <%--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--%>
+        <button type="button" class="btn btn-primary" runat="server" onserverclick="Button1_Click">EVET</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <header id="header"><!--header-->
+		<div class="header_top"><!--header_top-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="contactinfo">
+							<ul class="nav nav-pills">
+								<li><a href="#"><i class="fa fa-phone"></i> +90 0537 471 39 64</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> Erencasper16@hotmail.com</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="social-icons pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header_top-->
+		
+		<div class="header-middle"><!--header-middle-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="logo pull-left">
+							<a href="default.aspx"><img src="images/home/elogo.png" alt="" /></a>
+						</div>
+						<%--<div class="btn-group pull-right">
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+									USA
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#">Canada</a></li>
+									<li><a href="#">UK</a></li>
+								</ul>
+							</div>
+							
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+									DOLLAR
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#">Canadian Dollar</a></li>
+									<li><a href="#">Pound</a></li>
+								</ul>
+							</div>
+						</div>--%>
+					</div>
+					<div class="col-sm-8">
+						<div class="shop-menu pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href="#"><i class="fa fa-user"></i> Hesabım</a></li>
+								<li><a href="#"><i class="fa fa-star"></i> İstek Listesi</a></li>
+								<%--<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>--%>
+
+
+								<% Ecommerceproje.UrunCRUD uruncrud = new Ecommerceproje.UrunCRUD();
+
+                                   
+                                   
+
+
+									%>
+								
+
+
+								<%if (Session["uye"]!=null)
+                                    {%>
+								
+								<%int kaysay = uruncrud.sepetsayigoster(Session["uye"].ToString()); %>
+
+								<li><a href="sepet.aspx"><i class="fa fa-shopping-cart"></i> Sepet [<%=kaysay %> Adet Ürün]</a></li>
+                                    <% }
+										
+                                       
+                                       else
+                                       {%>
+								<li><a href="giris.aspx"><i class="fa fa-shopping-cart"></i> Sepet</a></li>
+                                       <% }%>  
+
+								
+								<%if (Session["uye"]!=null)
+                                    {%>
+								<li><a href="#login" role="button" data-toggle="modal"><i class="fa fa-lock"></i> Çıkış Yap</a></li>
+                                   <% }
+                                       else
+                                       {%>
+								<li><a href="giris.aspx"><i class="fa fa-lock"></i> Giriş Yap</a></li>
+                                      <% } %>
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-middle-->
+	
+
+		<%--<form id="form2" runat="server">--%>
+		
+	</div>
+
+		
+		
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+
+
+
+
+
+		<div class="header-bottom"><!--header-bottom-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-9">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<div class="mainmenu pull-left">
+							<ul class="nav navbar-nav collapse navbar-collapse">
+								<li><a href="default.aspx" class="active">Ana Sayfa</a></li>
+								<li class="dropdown"><a href="#">Kategoriler<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+
+										<%System.Data.DataTable dt = new System.Data.DataTable();
+                                            dt = uruncrud.kateliste();%>
+
+										<%for (int i = 0; i < dt.Rows.Count; i++)
+                                            {%>
+										 <li><a href="urunler.aspx?kprm=<%= dt.Rows[i][0] %>"><%=dt.Rows[i][1] %></a></li>
+                                           <% } %>
+
+                                       
+
+
+
+										<%--<li><a href="product-details.html">Bilgisayarla
+											
+											r</a></li> 
+										<li><a href="checkout.html">Televizyonlar</a></li> 
+										<li><a href="cart.html">Tabletler</a></li> 
+										<li><a href="login.html">Kulaklıklar</a></li> --%>
+                                    </ul>
+                                </li> 
+								<%--<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="blog.html">Blog List</a></li>
+										<li><a href="blog-single.html">Blog Single</a></li>
+                                    </ul>
+                                </li> 
+								<li><a href="404.html">404</a></li>--%>
+								<%if (Session["uye"]!=null)
+                                    {%>
+								<li><a href="iletisim.aspx">İletişim</a></li>
+                                   <% }
+                                       else
+                                       { %>
+								<li><a href="giris.aspx">İletişim</a></li>
+                                      <% } %>
+								
+							</ul>
+
+
+						</div>
+					</div>
+					<%--<div class="col-sm-3">
+						<div class="search_box pull-right">
+							<input type="text" placeholder="Search"/>
+						</div>--%>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-bottom-->
+	
+   
+		</header><!--/header-->
+
+ <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+
+	<footer id="footer"><!--Footer-->
+		<%--<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<div class="companyinfo">
+							<h2><span>e</span>-shopper</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+						</div>
+					</div>
+					<div class="col-sm-7">
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="images/home/iframe1.png" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Circle of Hands</p>
+								<h2>24 DEC 2014</h2>
+							</div>
+						</div>
+						
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="images/home/iframe2.png" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Circle of Hands</p>
+								<h2>24 DEC 2014</h2>
+							</div>
+						</div>
+						
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="images/home/iframe3.png" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Circle of Hands</p>
+								<h2>24 DEC 2014</h2>
+							</div>
+						</div>
+						
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="images/home/iframe4.png" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Circle of Hands</p>
+								<h2>24 DEC 2014</h2>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="address">
+							<img src="images/home/map.png" alt="" />
+							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer-widget">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Service</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Online Help</a></li>
+								<li><a href="#">Contact Us</a></li>
+								<li><a href="#">Order Status</a></li>
+								<li><a href="#">Change Location</a></li>
+								<li><a href="#">FAQ’s</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Quock Shop</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">T-Shirt</a></li>
+								<li><a href="#">Mens</a></li>
+								<li><a href="#">Womens</a></li>
+								<li><a href="#">Gift Cards</a></li>
+								<li><a href="#">Shoes</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Policies</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Terms of Use</a></li>
+								<li><a href="#">Privecy Policy</a></li>
+								<li><a href="#">Refund Policy</a></li>
+								<li><a href="#">Billing System</a></li>
+								<li><a href="#">Ticket System</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>About Shopper</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Company Information</a></li>
+								<li><a href="#">Careers</a></li>
+								<li><a href="#">Store Location</a></li>
+								<li><a href="#">Affillate Program</a></li>
+								<li><a href="#">Copyright</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-3 col-sm-offset-1">
+						<div class="single-widget">
+							<h2>About Shopper</h2>
+							<form action="" class="searchform">
+								<input type="text" placeholder="Your email address" />
+								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
+								<p>Get the most recent updates from <br />our site and be updated your self...</p>
+							</form>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>--%>
+		
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<p class="pull-left"> © 2023 Eren E-Ticaret. Tüm Hakları Saklıdır..</p>
+					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Eren</a></span></p>
+				</div>
+			</div>
+		</div>
+		<asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" Visible="false" />
+	</footer><!--/Footer-->
+
+
+	 <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.scrollUp.min.js"></script>
+	<script src="js/price-range.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
